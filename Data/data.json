@@ -1,0 +1,202 @@
+[
+    {
+      "name": "Spaghetti Carbonara",
+      "rating": 3
+    },
+    {
+      "name": "Sushi",
+      "rating": 4
+    },
+    {
+      "name": "Tacos",
+      "rating": 2
+    },
+    {
+      "name": "Pad Thai",
+      "rating": 3
+    },
+    {
+      "name": "Butter Chicken",
+      "rating": 3
+    },
+    {
+      "name": "Pizza Margherita",
+      "rating": 2
+    },
+    {
+      "name": "Beef Stroganoff",
+      "rating": 3
+    },
+    {
+      "name": "Falafel",
+      "rating": 3
+    },
+    {
+      "name": "Ramen",
+      "rating": 4
+    },
+    {
+      "name": "Paella",
+      "rating": 4
+    },
+    {
+      "name": "Chicken Tikka Masala",
+      "rating": 3
+    },
+    {
+      "name": "Lasagna",
+      "rating": 3
+    },
+    {
+      "name": "Peking Duck",
+      "rating": 5
+    },
+    {
+      "name": "Moussaka",
+      "rating": 4
+    },
+    {
+      "name": "Fish and Chips",
+      "rating": 2
+    },
+    {
+      "name": "Burritos",
+      "rating": 2
+    },
+    {
+      "name": "Goulash",
+      "rating": 3
+    },
+    {
+      "name": "Dim Sum",
+      "rating": 5
+    },
+    {
+      "name": "Biryani",
+      "rating": 4
+    },
+    {
+      "name": "Ratatouille",
+      "rating": 3
+    },
+    {
+      "name": "Pho",
+      "rating": 4
+    },
+    {
+      "name": "Shepherd's Pie",
+      "rating": 2
+    },
+    {
+      "name": "Bibimbap",
+      "rating": 4
+    },
+    {
+      "name": "Coq au Vin",
+      "rating": 4
+    },
+    {
+      "name": "Empanadas",
+      "rating": 3
+    },
+    {
+      "name": "Jambalaya",
+      "rating": 3
+    },
+    {
+      "name": "Souvlaki",
+      "rating": 3
+    },
+    {
+      "name": "Churros",
+      "rating": 3
+    },
+    {
+      "name": "Tom Yum Soup",
+      "rating": 3
+    },
+    {
+      "name": "Risotto",
+      "rating": 4
+    },
+    {
+      "name": "Shakshuka",
+      "rating": 2
+    },
+    {
+      "name": "Ceviche",
+      "rating": 2
+    },
+    {
+      "name": "Tandoori Chicken",
+      "rating": 3
+    },
+    {
+      "name": "Fajitas",
+      "rating": 2
+    },
+    {
+      "name": "Gnocchi",
+      "rating": 4
+    },
+    {
+      "name": "Hummus",
+      "rating": 1
+    },
+    {
+      "name": "Clam Chowder",
+      "rating": 3
+    },
+    {
+      "name": "Kimchi",
+      "rating": 3
+    },
+    {
+      "name": "Schnitzel",
+      "rating": 3
+    },
+    {
+      "name": "Enchiladas",
+      "rating": 2
+    },
+    {
+      "name": "Bouillabaisse",
+      "rating": 5
+    },
+    {
+      "name": "Poutine",
+      "rating": 2
+    },
+    {
+      "name": "Baklava",
+      "rating": 4
+    },
+    {
+      "name": "Curry Laksa",
+      "rating": 4
+    },
+    {
+      "name": "Pierogi",
+      "rating": 3
+    },
+    {
+      "name": "Croque Monsieur",
+      "rating": 2
+    },
+    {
+      "name": "Arepas",
+      "rating": 3
+    },
+    {
+      "name": "Beef Wellington",
+      "rating": 5
+    },
+    {
+      "name": "Tamales",
+      "rating": 4
+    },
+    {
+      "name": "Gazpacho",
+      "rating": 1
+    }
+  ]
