@@ -33,7 +33,6 @@ int main(int argc, char* argv[])
 
     std::vector <Json::Value> items;
 
-
     for (Json::Value::iterator it=root.begin(); it!=root.end(); ++it) {
         Json::Value newval = *it;
     //bool found = false;
@@ -63,7 +62,7 @@ int main(int argc, char* argv[])
     for(std::vector<std::string>::iterator it=menu.begin(); it!=menu.end(); ++it){
         int index = static_cast<int>(static_cast<double>(rand() / (RAND_MAX + 1.0))*items.size());
         week[*it] = items[index];
-        items.erase(index);
+        items.erase(items.begin() + index);
     }
     std::cout << week << std::endl;
 
