@@ -4,32 +4,12 @@
       "rating": 3
     },
     {
-      "name": "Sushi",
-      "rating": 4
-    },
-    {
-      "name": "Tacos",
-      "rating": 2
-    },
-    {
-      "name": "Pad Thai",
-      "rating": 3
-    },
-    {
       "name": "Butter Chicken",
       "rating": 3
     },
     {
       "name": "Pizza Margherita",
       "rating": 2
-    },
-    {
-      "name": "Beef Stroganoff",
-      "rating": 3
-    },
-    {
-      "name": "Falafel",
-      "rating": 3
     },
     {
       "name": "Ramen",
@@ -41,10 +21,6 @@
     },
     {
       "name": "Chicken Tikka Masala",
-      "rating": 3
-    },
-    {
-      "name": "Lasagna",
       "rating": 3
     },
     {
@@ -80,10 +56,6 @@
       "rating": 3
     },
     {
-      "name": "Pho",
-      "rating": 4
-    },
-    {
       "name": "Shepherd's Pie",
       "rating": 2
     },
@@ -105,10 +77,6 @@
     },
     {
       "name": "Souvlaki",
-      "rating": 3
-    },
-    {
-      "name": "Churros",
       "rating": 3
     },
     {
@@ -168,10 +136,6 @@
       "rating": 2
     },
     {
-      "name": "Baklava",
-      "rating": 4
-    },
-    {
       "name": "Curry Laksa",
       "rating": 4
     },
@@ -198,5 +162,174 @@
     {
       "name": "Gazpacho",
       "rating": 1
-    }
-  ]
+    },
+      {
+        "name": "Spaghetti Bolognese",
+        "rating": 3
+      },
+      {
+        "name": "Chicken Alfredo",
+        "rating": 2
+      },
+      {
+        "name": "Beef Tacos",
+        "rating": 2
+      },
+      {
+        "name": "Vegetable Stir-fry",
+        "rating": 1
+      },
+      {
+        "name": "Grilled Salmon with Asparagus",
+        "rating": 3
+      },
+      {
+        "name": "Chicken Caesar Salad",
+        "rating": 1
+      },
+      {
+        "name": "Beef Stroganoff",
+        "rating": 4
+      },
+      {
+        "name": "Shrimp Scampi",
+        "rating": 3
+      },
+      {
+        "name": "Margherita Pizza",
+        "rating": 2
+      },
+      {
+        "name": "Chicken Curry",
+        "rating": 3
+      },
+      {
+        "name": "Beef Burgers",
+        "rating": 2
+      },
+      {
+        "name": "Veggie Burgers",
+        "rating": 2
+      },
+      {
+        "name": "Lasagna",
+        "rating": 4
+      },
+      {
+        "name": "BBQ Ribs",
+        "rating": 4
+      },
+      {
+        "name": "Chicken Parmesan",
+        "rating": 3
+      },
+      {
+        "name": "Beef Chili",
+        "rating": 3
+      },
+      {
+        "name": "Sushi Rolls",
+        "rating": 5
+      },
+      {
+        "name": "Chicken Noodle Soup",
+        "rating": 2
+      },
+      {
+        "name": "Pulled Pork Sandwiches",
+        "rating": 3
+      },
+      {
+        "name": "Eggplant Parmesan",
+        "rating": 3
+      },
+      {
+        "name": "Beef Stew",
+        "rating": 4
+      },
+      {
+        "name": "Falafel Wraps",
+        "rating": 2
+      },
+      {
+        "name": "Grilled Cheese Sandwiches",
+        "rating": 1
+      },
+      {
+        "name": "Tomato Basil Soup",
+        "rating": 2
+      },
+      {
+        "name": "Beef Kebabs",
+        "rating": 3
+      },
+      {
+        "name": "Chicken Quesadillas",
+        "rating": 2
+      },
+      {
+        "name": "Shrimp Tacos",
+        "rating": 2
+      },
+      {
+        "name": "Greek Salad",
+        "rating": 1
+      },
+      {
+        "name": "Chicken Pot Pie",
+        "rating": 4
+      },
+      {
+        "name": "Veggie Pasta Primavera",
+        "rating": 2
+      },
+      {
+        "name": "Chicken Fried Rice",
+        "rating": 2
+      },
+      {
+        "name": "Beef Meatballs",
+        "rating": 3
+      },
+      {
+        "name": "Shrimp Fried Rice",
+        "rating": 2
+      },
+      {
+        "name": "Chicken Wings",
+        "rating": 2
+      },
+      {
+        "name": "Veggie Stir-fry",
+        "rating": 1
+      },
+      {
+        "name": "Chicken Shawarma",
+        "rating": 3
+      },
+      {
+        "name": "Beef Pho",
+        "rating": 4
+      },
+      {
+        "name": "Shrimp Pad Thai",
+        "rating": 3
+      },
+      {
+        "name": "Beef Tostadas",
+        "rating": 2
+      },
+      {
+        "name": "Chicken Teriyaki",
+        "rating": 3
+      },
+      {
+        "name": "Beef Nachos",
+        "rating": 2
+      },
+      {
+        "name": "Shrimp Gumbo",
+        "rating": 4
+      }
+    ]
+    
