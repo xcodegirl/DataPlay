@@ -11,6 +11,8 @@ using namespace std;
 #include <string>
 #include <ctime>
 
+#include <google/cloud/storage/client.h>
+
 int main(int argc, char* argv[])
 {
     Json::Value root;
@@ -35,15 +37,21 @@ int main(int argc, char* argv[])
 
     for (Json::Value::iterator it=root.begin(); it!=root.end(); ++it) {
         Json::Value newval = *it;
-    //bool found = false;
-    // for (std::vector<Json::Value>::iterator it2=items.begin(); it2!=items.end(); ++it2) {
-    //     Json::Value val2 = *it2;
-    //     if( val2["name"].asString().find(newval["name"].asString())!=std::string::npos || newval["name"].asString().find(val2["name"].asString())!=std::string::npos){
-    //     cout << newval["name"] << " " << val2["name"] <<std::endl;
-    //     found = true;
-    //     }
-    // }
-    //if(!found)
+    bool found = false;
+    bool checkForDuplicates = true;
+    bool exactMatch = true;
+    if(checkForDuplicates)
+         for (std::vector<Json::Value>::iterator it2=items.begin(); it2!=items.end(); ++it2) {
+        Json::Value val2 = *it2;
+        if(val2["name"].asString()==newval["name"].asString() 
+        || !exactMatch 
+            && (val2["name"].asString().find(newval["name"].asString())!=std::string::npos || newval["name"].asString().find(val2["name"].asString())!=std::string::npos)){
+        cout << newval["name"] << " " << val2["name"] <<std::endl;
+        found = true;
+        }
+    }
+    
+    if(!found)
         items.push_back(*it);
     }   
 
@@ -65,7 +73,9 @@ int main(int argc, char* argv[])
         items.erase(items.begin() + index);
     }
     std::cout << week << std::endl;
+  // Prompt: Every time I ask, give one unique meal idea similar to a meal-in-a-box subscription service, formatted in json, with recipes for each component
 
-
+    //Prompt: Pick 20 word puzzle theme ideas. Pick 5 common words for each theme, make longer than 2 letters and eliminate redundant terms. Give each theme a difficulty rating from 1 being most easy to 10 being most difficult. Format into json result.
+    
     return EXIT_SUCCESS;
 }

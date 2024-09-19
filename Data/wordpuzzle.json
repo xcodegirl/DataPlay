@@ -1,0 +1,22 @@
+[
+    { "theme": "Animals", "words": ["Elephant", "Giraffe", "Lion", "Tiger", "Zebra"], "difficulty": 1 },
+    { "theme": "Colors", "words": ["Red", "Blue", "Green", "Yellow", "Orange"], "difficulty": 1 },
+    { "theme": "Fruits", "words": ["Apple", "Banana", "Orange", "Strawberry", "Blueberry"], "difficulty": 1 },
+    { "theme": "Vegetables", "words": ["Carrot", "Broccoli", "Tomato", "Potato", "Onion"], "difficulty": 1 },
+    { "theme": "Sports", "words": ["Soccer", "Basketball", "Baseball", "Tennis", "Volleyball"], "difficulty": 2 },
+    { "theme": "Movies", "words": ["Action", "Comedy", "Drama", "Horror", "Sci-Fi"], "difficulty": 2 },
+    { "theme": "Cities", "words": ["London", "Paris", "Tokyo", "Rome", "Berlin"], "difficulty": 2 },
+    { "theme": "Flowers", "words": ["Rose", "Lily", "Tulip", "Daisy", "Sunflower"], "difficulty": 2 },
+    { "theme": "Musical Instruments", "words": ["Guitar", "Piano", "Drums", "Violin", "Trumpet"], "difficulty": 3 },
+    { "theme": "Types of Food", "words": ["Pizza", "Pasta", "Sushi", "Tacos", "Burgers"], "difficulty": 2 },
+    { "theme": "Types of Cars", "words": ["Sedan", "SUV", "Truck", "Sports Car", "Convertible"], "difficulty": 2 },
+    { "theme": "Types of Jewelry", "words": ["Ring", "Necklace", "Bracelet", "Earrings", "Pendant"], "difficulty": 2 },
+    { "theme": "Types of Art", "words": ["Painting", "Sculpture", "Photography", "Drawing", "Digital Art"], "difficulty": 2 },
+    { "theme": "Types of Games", "words": ["Board Game", "Video Game", "Card Game", "Sports Game", "Puzzle Game"], "difficulty": 2 },
+    { "theme": "Types of Technology", "words": ["Computer", "Smartphone", "Internet", "Robot", "AI"], "difficulty": 3 },
+    { "theme": "Types of Science", "words": ["Biology", "Chemistry", "Physics", "Astronomy", "Geology"], "difficulty": 3 },
+    { "theme": "Types of Math", "words": ["Algebra", "Geometry", "Calculus", "Statistics", "Trigonometry"], "difficulty": 4 },
+    { "theme": "Types of History", "words": ["Ancient", "Medieval", "Modern", "American", "World"], "difficulty": 3 },
+    { "theme": "Types of Geography", "words": ["Mountain", "River", "Ocean", "Desert", "Forest"], "difficulty": 3 },
+    { "theme": "Types of Mythology", "words": ["Greek", "Roman", "Norse", "Egyptian", "Japanese"], "difficulty": 4 }
+  ]
