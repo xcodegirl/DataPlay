@@ -11,6 +11,7 @@ using namespace std;
 #include <string>
 #include <algorithm>
 #include <ctime>
+#include <random>
 
 /*
 Reads specified json file into a data structure,
@@ -20,29 +21,59 @@ Then, performs data access and algorithms, such as:
 */
 int main(int argc, char* argv[])
 {
-
-	Json::Value root;
-	std::string filename;
-
 	// 1. parse commandline
-	if (argc == 1) {
-		std::cout << "Please specify file to parse. Using default Data\\data.json" << std::endl;
-		filename = "..\\..\\..\\Data\\data.json";
-	}
-	else
-	  filename = std::string(argv[1]);
+	std::string filename;
+	std::string uniqueKey;
+	std::string filterKey;
+	int filterValue = 0;
+	bool containsMatch = false;
+	bool caseMatch = false;
+	bool checkForDuplicates = !uniqueKey.empty();
+	bool filter = false;
 
 	// some options to set 
-	std::string uniqueKey;
-	bool containsMatch = false;
-	bool caseMatch = true;
-	if (argc == 3) {
-		uniqueKey = argv[2];
-		cout << "Avoiding duplicate keys " << uniqueKey << "." << endl;
+	int options = 1;
+	for (int i = 1; i < argc; ++i) {
+		std::string arg = argv[i];
+		if (arg == "-file") {
+			if (i + 1 < argc)
+				filename = argv[++i];
+			cout << "Importing data from " << filename << " ." << endl;
+		}
+		else if (arg == "-choices") {
+			if (i + 1 < argc)
+				options = std::stoi(argv[++i]);
+			cout << "Selecting " << options << " random choices." << endl;
+		}
+		else if (arg == "-noduplicates") {
+			checkForDuplicates = true;
+			if (i + 1 < argc)
+				uniqueKey = argv[++i];
+			cout << "Avoiding duplicate keys " << uniqueKey << "." << endl;
+		}
+		else if (arg == "-ignorecase") {
+			caseMatch = true;
+		}
+		else if (arg == "-contains") {
+			containsMatch = true;
+		}
+		else if (arg == "-filter") {
+			filter = true;
+			if (i + 1 < argc)
+				filterKey = argv[++i];
+			if (i + 1 < argc)
+				filterValue = std::stoi(argv[++i]);
+			uniqueKey = argv[3];
+			cout << "Filtering key " << filterKey << " = " << filterValue << " ." << endl;
+		}		
 	}
-	bool checkForDuplicates = !uniqueKey.empty();
+	if (filename.empty()) {
+		std::cout << "Please specify file to parse. Using default D ata\\data.json" << std::endl;
+		filename = "..\\..\\..\\Data\\data.json";
+	}
 
 	// 2. Load json file into root value
+	Json::Value root;
 	std::ifstream ifs;
 	ifs.open(filename);
 	
@@ -60,6 +91,8 @@ int main(int argc, char* argv[])
 	for (Json::Value::iterator it = root.begin(); it != root.end(); ++it) {
 		Json::Value newval = *it;
 		bool found = false;
+
+		if (filter && newval[filterKey].asInt() != filterValue) continue;
 
 		if (checkForDuplicates && newval[uniqueKey].isNull()) {
 			cout << "Key " << uniqueKey << " doesn't exist." << endl;
@@ -91,14 +124,16 @@ int main(int argc, char* argv[])
 	}
 
 	// 4. Perform random selection
-	std::srand(static_cast<unsigned int>(std::time(nullptr))); // use current time as seed for random generator
-	auto rng = std::default_random_engine(std::time(nullptr)){};
-	std::shuffle(items.begin(), items.end(), rng);
-
 	Json::Value selection;
-	for (std::vector<std::string>::iterator it = menu.begin(); it != menu.end(); ++it) {
-		int index = static_cast<int>(static_cast<double>(rand() / (RAND_MAX + 1.0)) * items.size());
-		selection[*it] = items[index];
+	if(options > items.size()) options = static_cast<int>(items.size());
+
+	std::random_device rd; // Seed source for the random number engine
+	std::mt19937 gen(rd()); // Mersenne Twister engine seeded with rd()
+
+	for (int i = 0; i < options; i++) { 
+		std::uniform_int_distribution<> distrib(0, static_cast<int>(items.size()) - 1);
+		int index = distrib(gen);
+		selection[i] = items[index];
 		items.erase(items.begin() + index);
 	}
 	std::cout << selection << std::endl;
