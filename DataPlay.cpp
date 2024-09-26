@@ -9,74 +9,101 @@ using namespace std;
 #include <json/json.h>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include <ctime>
 
 /*
 Reads specified json file into a data structure,
-optionally avoiding duplicates in field "name"
-Then, performs data access and algorithms, such as: 
-    - randomly selcting a subsset of unique elements
+optionally avoiding duplicates in field such as "name".
+Then, performs data access and algorithms, such as:
+	- randomly selcting a subsset of unique elements
 */
 int main(int argc, char* argv[])
 {
-    Json::Value root;
 
-    // 1. parse commandline and open file
-    std::ifstream ifs;
-    if(argc == 1){
-        std::cout << "Please specify file to parse." << std::endl;
-        return EXIT_FAILURE;
-    }
+	Json::Value root;
+	std::string filename;
 
-    std::string filename = std::string(argv[1]);
-    ifs.open(argv[1]);
+	// 1. parse commandline
+	if (argc == 1) {
+		std::cout << "Please specify file to parse. Using default Data\\data.json" << std::endl;
+		filename = "..\\..\\..\\Data\\data.json";
+	}
+	else
+	  filename = std::string(argv[1]);
 
-    // 2. Load json file into root value
-    Json::CharReaderBuilder builder;
-    builder["collectComments"] = true;
-    JSONCPP_STRING errs;
-    if (!parseFromStream(builder, ifs, &root, &errs)) {
-        std::cout << errs << std::endl;
-        return EXIT_FAILURE;
-    }
+	// some options to set 
+	std::string uniqueKey;
+	bool containsMatch = false;
+	bool caseMatch = true;
+	if (argc == 3) {
+		uniqueKey = argv[2];
+		cout << "Avoiding duplicate keys " << uniqueKey << "." << endl;
+	}
+	bool checkForDuplicates = !uniqueKey.empty();
 
-    // 3. Iterate over json structure and insert into vector
-    std::vector <Json::Value> items;
+	// 2. Load json file into root value
+	std::ifstream ifs;
+	ifs.open(filename);
+	
+	Json::CharReaderBuilder builder;
+	builder["collectComments"] = true;
+	JSONCPP_STRING errs;
+	if (!parseFromStream(builder, ifs, &root, &errs)) {
+		std::cout << errs << std::endl;
+		return EXIT_FAILURE;
+	}
 
-    for (Json::Value::iterator it=root.begin(); it!=root.end(); ++it) {
-        Json::Value newval = *it;
-    bool found = false;
-    bool checkForDuplicates = true;
-    bool exactMatch = true;
-    if(checkForDuplicates)
-         for (std::vector<Json::Value>::iterator it2=items.begin(); it2!=items.end(); ++it2) {
-        Json::Value val2 = *it2;
-        if(val2["name"].asString()==newval["name"].asString() 
-        || !exactMatch 
-            && (val2["name"].asString().find(newval["name"].asString())!=std::string::npos || newval["name"].asString().find(val2["name"].asString())!=std::string::npos)){
-        cout << newval["name"] << " " << val2["name"] <<std::endl;
-        found = true;
-        }
-    }
-    
-    if(!found)
-        items.push_back(*it);
-    }   
+	// 3. Iterate over json structure and insert into vector
+	std::vector <Json::Value> items;
 
-    // 4. Perform random selection
-    std::srand(static_cast<unsigned int>(std::time(nullptr))); // use current time as seed for random generator
+	for (Json::Value::iterator it = root.begin(); it != root.end(); ++it) {
+		Json::Value newval = *it;
+		bool found = false;
 
-    std::vector<std::string> menu;
-    menu.push_back("Option A");
-    menu.push_back("Option B");
-    menu.push_back("Option C");
+		if (checkForDuplicates && newval[uniqueKey].isNull()) {
+			cout << "Key " << uniqueKey << " doesn't exist." << endl;
+			checkForDuplicates = false;
+		}
+		if (checkForDuplicates) {
+			std::string newstr = newval[uniqueKey].asString();
+			if (caseMatch)
+				std::transform(newstr.begin(), newstr.end(), newstr.begin(), std::tolower);
 
-    Json::Value selection;
-    for(std::vector<std::string>::iterator it=menu.begin(); it!=menu.end(); ++it){
-        int index = static_cast<int>(static_cast<double>(rand() / (RAND_MAX + 1.0))*items.size());
-        selection[*it] = items[index];
-        items.erase(items.begin() + index);
-    }
-    std::cout << selection << std::endl;
-    return EXIT_SUCCESS;
+			for (std::vector<Json::Value>::iterator it2 = items.begin(); it2 != items.end(); ++it2) {
+				Json::Value val2 = *it2;
+				std::string str2 = val2[uniqueKey].asString();
+
+				if (caseMatch)
+					std::transform(str2.begin(), str2.end(), str2.begin(), std::tolower);
+
+				if (str2 == newstr
+					|| containsMatch 
+					&& (str2.find(newstr) != std::string::npos || newstr.find(str2) != std::string::npos)) {
+					cout << "DUPLICATE ENTRY:  " << newval[uniqueKey] << " " << val2[uniqueKey] << std::endl;
+					found = true;
+				}
+			}
+		}
+
+		if (!found)
+			items.push_back(*it);
+	}
+
+	// 4. Perform random selection
+	std::srand(static_cast<unsigned int>(std::time(nullptr))); // use current time as seed for random generator
+
+	std::vector<std::string> menu;
+	menu.push_back("Option A");
+	menu.push_back("Option B");
+	menu.push_back("Option C");
+
+	Json::Value selection;
+	for (std::vector<std::string>::iterator it = menu.begin(); it != menu.end(); ++it) {
+		int index = static_cast<int>(static_cast<double>(rand() / (RAND_MAX + 1.0)) * items.size());
+		selection[*it] = items[index];
+		items.erase(items.begin() + index);
+	}
+	std::cout << selection << std::endl;
+	return EXIT_SUCCESS;
 }

@@ -18,5 +18,6 @@
     { "theme": "Types of Math", "words": ["Algebra", "Geometry", "Calculus", "Statistics", "Trigonometry"], "difficulty": 4 },
     { "theme": "Types of History", "words": ["Ancient", "Medieval", "Modern", "American", "World"], "difficulty": 3 },
     { "theme": "Types of Geography", "words": ["Mountain", "River", "Ocean", "Desert", "Forest"], "difficulty": 3 },
+    { "theme": "Types of Geography in practice", "words": ["Mountain", "River", "Ocean", "Desert", "Forest"], "difficulty": 3 },
     { "theme": "Types of Mythology", "words": ["Greek", "Roman", "Norse", "Egyptian", "Japanese"], "difficulty": 4 }
   ]
