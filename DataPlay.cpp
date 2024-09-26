@@ -92,11 +92,8 @@ int main(int argc, char* argv[])
 
 	// 4. Perform random selection
 	std::srand(static_cast<unsigned int>(std::time(nullptr))); // use current time as seed for random generator
-
-	std::vector<std::string> menu;
-	menu.push_back("Option A");
-	menu.push_back("Option B");
-	menu.push_back("Option C");
+	auto rng = std::default_random_engine(std::time(nullptr)){};
+	std::shuffle(items.begin(), items.end(), rng);
 
 	Json::Value selection;
 	for (std::vector<std::string>::iterator it = menu.begin(); it != menu.end(); ++it) {
