@@ -1,12 +1,5 @@
 {
   "dependencies": [
-    "jsoncpp",
-    {
-      "name": "google-cloud-cpp",
-      "default-features": false,
-      "features": [
-        "aiplatform"
-      ]
-    }
+    "jsoncpp"
   ]
 }

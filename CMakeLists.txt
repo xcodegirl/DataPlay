@@ -12,7 +12,6 @@ endif()
 project ("DataPlay")
 
 find_package(jsoncpp CONFIG REQUIRED)
-find_package(google_cloud_cpp_storage REQUIRED)
 
 # Add source to this project's executable.
 add_executable (DataPlay "DataPlay.cpp" "DataPlay.h")
