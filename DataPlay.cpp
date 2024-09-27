@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 		if (arg == "-file") {
 			if (i + 1 < argc)
 				filename = argv[++i];
-			cout << "Importing data from " << filename << " ." << endl;
+			cout << "Importing data from " << filename << endl;
 		}
 		else if (arg == "-choices") {
 			if (i + 1 < argc)
@@ -64,11 +64,11 @@ int main(int argc, char* argv[])
 			if (i + 1 < argc)
 				filterValue = std::stoi(argv[++i]);
 			uniqueKey = argv[3];
-			cout << "Filtering key " << filterKey << " = " << filterValue << " ." << endl;
+			cout << "Filtering key " << filterKey << " = " << filterValue << endl;
 		}		
 	}
 	if (filename.empty()) {
-		std::cout << "Please specify file to parse. Using default D ata\\data.json" << std::endl;
+		cout << "Please specify file to parse. Using default Data\\data.json" << endl;
 		filename = "..\\..\\..\\Data\\data.json";
 	}
 
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 	builder["collectComments"] = true;
 	JSONCPP_STRING errs;
 	if (!parseFromStream(builder, ifs, &root, &errs)) {
-		std::cout << errs << std::endl;
+		cout << errs << endl;
 		return EXIT_FAILURE;
 	}
 
@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
 				if (str2 == newstr
 					|| containsMatch 
 					&& (str2.find(newstr) != std::string::npos || newstr.find(str2) != std::string::npos)) {
-					cout << "DUPLICATE ENTRY:  " << newval[uniqueKey] << " " << val2[uniqueKey] << std::endl;
+					cout << "DUPLICATE ENTRY:  " << newval[uniqueKey] << " " << val2[uniqueKey] << endl;
 					found = true;
 				}
 			}
@@ -136,6 +136,6 @@ int main(int argc, char* argv[])
 		selection[i] = items[index];
 		items.erase(items.begin() + index);
 	}
-	std::cout << selection << std::endl;
+	cout << selection << endl;
 	return EXIT_SUCCESS;
 }
